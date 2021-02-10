@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Combinations {
+
+	public static void main(String[] args) {
+		
+		System.out.println("In Main");
+		int n = 3;
+		int k =3;
+		
+		List<List<Integer>> res=  combine(n,k);
+		System.out.println(res);
+	}
+	  public static List<List<Integer>> combine(int n, int k) {
+	        
+		 List<Integer> res = new ArrayList<>();
+		  List<List<Integer>>result1 = new ArrayList<>();
+		  
+		  int[] array1 = new int[n];
+		  List<Integer>inputList = new ArrayList<>();
+		  if(n ==1 && k ==1) {
+			  res.add(1);
+			  result1.add(res);
+			  return result1;
+		  }
+		  
+		  if(k == 1 && n>1) {
+			  for(int i =1 ;i <=n;i++) {
+				  List<Integer> res2 = new ArrayList<>();
+				  res2.add(i);
+				  result1.add(res2);
+				 
+			  }
+		  }
+		  
+		  for(int i = 1;i<=n;i++) {
+			  inputList.add(i);
+		  }
+		 for(int i = 1 ;i<=inputList.size();i++) {
+			 for(int j = i+1; j<=inputList.size();j++) {
+				 List<Integer> res2 = new ArrayList<>();
+				 res2.add(i);
+				 res2.add(j);
+				 
+				 res = res2;
+				 result1.add(res);
+				 }
+				 
+			 }
+		 
+	        return result1;
+	       
+	    }
+
+}
